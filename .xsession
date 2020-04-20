@@ -1,5 +1,6 @@
-#!/bin/sh
-if [ -f "~/.profile" ]; then
+#!/bin/bash
+
+if test ~/.profile; then
 	. ~/.profile
 fi
 . ~/.xinitrc
