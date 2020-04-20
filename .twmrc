@@ -3,12 +3,15 @@ NoHighlight
 RestartPreviousState
 DecorateTransients
 OpaqueMove
+RandomPlacement
 TitleFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 ResizeFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 MenuFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 IconFont "-adobe-helvetica-medium-r-normal--*-80-*-*-*-*-*-*"
 IconManagerFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*"
-#ClientBorderWidth
+RightTitleButton ":delete" = f.delete
+RightTitleButton ":dot" = f.fullzoom
+ClientBorderWidth
 
 Color
 {
@@ -77,6 +80,7 @@ Button2 = : iconmgr : f.iconify
 menu "defops"
 {
 "Twm"   f.title
+"Restart"       f.restart
 "Iconify"       f.iconify
 "Resize"        f.resize
 "Move"          f.move
@@ -90,9 +94,9 @@ menu "defops"
 "Hide Iconmgr"  f.hideiconmgr
 ""              f.nop
 "Xterm"         f.exec "exec xterm &"
-#"Root Xterm"   f.exec "exec xterm -T \"xterm (root)\" -e sudo -A -i &"
+"Emacs"         f.exec "emacs &"
+"Slack"         f.exec "slack &"
 "Root Xterm"    f.exec "exec xterm -e su - &"
-#"Chromium"     f.exec "exec chromium &"
 "Firefox"       f.exec "exec firefox &"
 ""              f.nop
 "mutt"          f.exec "exec xterm -e mutt &"
@@ -101,7 +105,5 @@ menu "defops"
 "Kill"          f.destroy
 "Delete"        f.delete
 ""              f.nop
-"Restart"       f.restart
 "Exit"          f.quit
 }
-
