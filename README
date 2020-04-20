@@ -1,0 +1,21 @@
+# NOTES for your environments
+
+## Configuration Files
+
+### From Display Manager like XDM
+
+* ~/.profile or ~/.xprofile (the priority below)
+* ~/.bashrc is NOT read
+
+### When You Login on Console
+
+* read one of these (with priority)
+  1. ~/.bashrc_profile
+  2. ~/.bash_login
+  3. ~/.profile
+* ~/.bashrc is NOT read
+
+### When the bash command is executed
+
+* ~/.bashrc IS read
+* ~/.profile, ~/.bash_profile and ~/.bash_login are NOT read
