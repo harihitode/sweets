@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 if test ~/.profile; then
-	. ~/.profile
+    . ~/.profile
 fi
 . ~/.xinitrc
