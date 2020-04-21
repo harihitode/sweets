@@ -59,23 +59,30 @@ Function "resize-or-raise" { f.resize f.deltastop f.raise }
 
 # click: Button1, 2, 3; = Click left, middle, right
 Button1 = : root : f.menu "Root Menu"
+Button2 = : root : f.restart
+Button3 = : root : f.menu "Window Menu"
+
 # window resizing
 Button1 = : frame : f.function "resize-or-raise"
-Button1 = s : frame : f.menu "Frame Menu"
+Button1 = m : frame : f.menu "Frame Menu"
 
 # icon manager calling
 Button1 = s : root : f.showiconmgr
 Button1 = s : iconmgr : f.hideiconmgr
 
-## with meta key
-Button1 = m : window|icon|iconmgr : f.function "move-or-raise"
-Button3 = m : window|icon|iconmgr : f.function "move-or-lower"
+# window with meta key
+Button1 = m : window|iconmgr : f.function "move-or-raise"
+Button2 = m : window : f.fullzoom
+Button3 = m : window : f.function "resize-or-raise"
 
+# title & icon (although not used)
 Button1 = : title : f.function "move-or-raise"
-Button3 = : title : f.raiselower
+Button2 = : title : f.function "move-or-raise"
+Button3 = : title : f.function "move-or-raise"
 
 Button1 = : icon : f.function "move-or-iconify"
-Button1 = : iconmgr : f.iconify
+Button2 = : icon : f.function "move-or-iconify"
+Button3 = : icon : f.function "move-or-iconify"
 
 # special key's bindings
 "Up" = s : all : f.exec "exec xbacklight -inc 10" # Backlight
@@ -94,12 +101,12 @@ Menu "System Menu"
 Menu "Applications"
 {
     "Root XTerm" f.exec "xterm -e su - &"
-    "Emacs" f.exec "emacs &"
-    "Slack" f.exec "slack &"
-    "Firefox" f.exec "firefox &"
-    "" f.nop
-    "mutt" f.exec "xterm -e mutt &"
-    "irssi" f.exec "xterm -e irssi &"
+    "Editor" f.exec "emacs &" # do you like vi? sorry...
+    "Web" f.exec "google-chrome &" # yeah, browser
+    "Message" f.exec "slack &" # I want simpler one!
+    # "Message" f.exec "xterm -e irssi &"
+    # Now I use gnus in emacs.
+    # "Mail" f.exec "xterm -e mutt &"
 }
 
 # And a menus with the usual things
