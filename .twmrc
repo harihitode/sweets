@@ -1,21 +1,27 @@
 NoGrabServer
-NoTitle # disable the title bar for the true geek
 NoHighlight
 NoCaseSensitive
 RestartPreviousState
 DecorateTransients
 OpaqueMove
 RandomPlacement
-TitleFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+NoTitle # disable the title bar for the true geek
+RightTitleButton ":delete" = f.delete
+RightTitleButton ":dot" = f.fullzoom
+BorderWidth 5
+MoveDelta 1 # triggering pxiel for f.move
+ShowIconManager # start with icon manager
+IconifyByUnmapping # just use icon manager
+
+# fonts
 ResizeFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 MenuFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 IconFont "-adobe-helvetica-medium-r-normal--*-80-*-*-*-*-*-*"
 IconManagerFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*"
-RightTitleButton ":delete" = f.delete
-RightTitleButton ":dot" = f.fullzoom
-BorderWidth 5
+TitleFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
 
 # when the cursor enter these apps, its window comes top automatically.
+# a little bit annoying...
 AutoRaise { }
 
 # cursor looking;
@@ -25,7 +31,7 @@ Cursors
 }
 
 # happy color scheme ;)
-# super user window is focused by changing the color
+# super user's windows are focused by changing the color
 Color
 {
     BorderColor "#4271ae" { "su" "#c82829" }
@@ -45,41 +51,37 @@ Color
     IconManagerForeground "#ffffff"
 }
 
-#
-# Define some useful functions for motion-based actions.
-#
-MoveDelta 3
+# functions for motion-based actions
 Function "move-or-lower" { f.move f.deltastop f.lower }
 Function "move-or-raise" { f.move f.deltastop f.raise }
 Function "move-or-iconify" { f.move f.deltastop f.iconify }
-Function "resize-or-raise" {f.resize f.deltastop f.raise}
+Function "resize-or-raise" { f.resize f.deltastop f.raise }
 
-#
-# Click: Button1, 2, 3; = Click left, middle, right
-#
+# click: Button1, 2, 3; = Click left, middle, right
 Button1 = : root : f.menu "Root Menu"
 # window resizing
 Button1 = : frame : f.function "resize-or-raise"
 Button1 = s : frame : f.menu "Frame Menu"
 
+# icon manager calling
+Button1 = s : root : f.showiconmgr
+Button1 = s : iconmgr : f.hideiconmgr
+
 ## with meta key
-Button1 = m : window|icon : f.function "move-or-raise"
-Button3 = m : window|icon : f.function "move-or-lower"
+Button1 = m : window|icon|iconmgr : f.function "move-or-raise"
+Button3 = m : window|icon|iconmgr : f.function "move-or-lower"
 
 Button1 = : title : f.function "move-or-raise"
 Button3 = : title : f.raiselower
 
 Button1 = : icon : f.function "move-or-iconify"
-Button3 = : icon : f.iconify
-
 Button1 = : iconmgr : f.iconify
-Button3 = : iconmgr : f.iconify
 
 # special key's bindings
-"Up" = m : all : f.exec "exec xbacklight -inc 10" # Backlight
-"Down" = m : all : f.exec "exec xbacklight -dec 10" # Backlight
-"Right" = m : all : f.exec "exec amixer sset Master 1+" # Volume Up
-"Left" = m : all : f.exec "exec amixer sset Master 1-" # Volume Down
+"Up" = s : all : f.exec "exec xbacklight -inc 10" # Backlight
+"Down" = s : all : f.exec "exec xbacklight -dec 10" # Backlight
+"Right" = s : all : f.exec "exec amixer sset Master 1+" # Volume Up
+"Left" = s : all : f.exec "exec amixer sset Master 1-" # Volume Down
 
 # the menu configurations
 Menu "System Menu"
@@ -91,25 +93,22 @@ Menu "System Menu"
 
 Menu "Applications"
 {
-    "Root Xterm" f.exec "exec xterm -e su - &"
+    "Root XTerm" f.exec "xterm -e su - &"
     "Emacs" f.exec "emacs &"
     "Slack" f.exec "slack &"
-    "Firefox" f.exec "exec firefox &"
+    "Firefox" f.exec "firefox &"
     "" f.nop
-    "mutt" f.exec "exec xterm -e mutt &"
-    "irssi" f.exec "exec xterm -e irssi &"
+    "mutt" f.exec "xterm -e mutt &"
+    "irssi" f.exec "xterm -e irssi &"
 }
 
 # And a menus with the usual things
 Menu "Root Menu"
 {
     "Start" f.title
-    "Xterm" f.exec "exec xterm &"
+    "XTerm" f.exec "xterm &"
     "Application" f.menu "Applications"
-    "" f.nop
-    "Show Iconmgr" f.showiconmgr
-    "Hide Iconmgr" f.hideiconmgr
-    "" f.nop
+    "~~~~ (''*" f.nop
     "System" f.menu "System Menu"
 }
 
