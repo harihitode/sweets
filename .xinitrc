@@ -12,4 +12,9 @@ export QT_IM_MODULE="xim"
 if test ~/skkinput; then
     ~/skkinput &
 fi
+
+if test ~/.desktop.png; bluetooth-sendto; then
+   xloadimage -onroot -smooth -brighten 50 .desktop.png
+fi
+
 twm
