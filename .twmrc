@@ -1,5 +1,7 @@
 NoGrabServer
+NoTitle # disable the title bar for the true geek
 NoHighlight
+NoCaseSensitive
 RestartPreviousState
 DecorateTransients
 OpaqueMove
@@ -11,39 +13,34 @@ IconFont "-adobe-helvetica-medium-r-normal--*-80-*-*-*-*-*-*"
 IconManagerFont "-adobe-helvetica-bold-r-normal--*-80-*-*-*"
 RightTitleButton ":delete" = f.delete
 RightTitleButton ":dot" = f.fullzoom
-ClientBorderWidth
+BorderWidth 5
 
+# when the cursor enter these apps, its window comes top automatically.
+AutoRaise { }
+
+# cursor looking;
+Cursors
+{
+    Frame "sizing"
+}
+
+# happy color scheme ;)
+# super user window is focused by changing the color
 Color
 {
-    BorderColor "#4271ae"
-    {
-        "Mozilla Firefox" "#f5871f"
-        "su" "#c82829"
-    }
+    BorderColor "#4271ae" { "su" "#c82829" }
     DefaultBackground "#4271ae"
     DefaultForeground "#ffffff"
-    TitleBackground "#4271ae"
-    {
-        "Mozilla Firefox" "#f5871f"
-        "su" "#c82829"
-    }
+    TitleBackground "#4271ae" { "su" "#c82829" }
     TitleForeground "#ffffff"
     MenuBackground "#ffffff"
     MenuForeground "#8959a8"
     MenuBorderColor "#8959a8"
     MenuTitleBackground "#8959a8"
     MenuTitleForeground "#ffffff"
-    IconBackground "#4271ae"
-    {
-        "Mozilla Firefox" "#f5871f"
-        "su" "#c82829"
-    }
+    IconBackground "#4271ae" { "su" "#c82829" }
     IconForeground "#ffffff"
-    IconBorderColor "#4271ae"
-    {
-        "Mozilla Firefox" "#f5871f"
-        "su" "#c82829"
-    }
+    IconBorderColor "#4271ae" { "su" "#c82829" }
     IconManagerBackground "#4271ae"
     IconManagerForeground "#ffffff"
 }
@@ -55,55 +52,81 @@ MoveDelta 3
 Function "move-or-lower" { f.move f.deltastop f.lower }
 Function "move-or-raise" { f.move f.deltastop f.raise }
 Function "move-or-iconify" { f.move f.deltastop f.iconify }
+Function "resize-or-raise" {f.resize f.deltastop f.raise}
 
 #
-# Set some useful bindings.  Sort of uwm-ish, sort of simple-button-ish
+# Click: Button1, 2, 3; = Click left, middle, right
 #
-Button1 = : root : f.menu "defops"
+Button1 = : root : f.menu "Root Menu"
+# window resizing
+Button1 = : frame : f.function "resize-or-raise"
+Button1 = s : frame : f.menu "Frame Menu"
 
-Button1 = m : window|icon : f.function "move-or-lower"
-Button2 = m : window|icon : f.iconify
-Button3 = m : window|icon : f.function "move-or-raise"
+## with meta key
+Button1 = m : window|icon : f.function "move-or-raise"
+Button3 = m : window|icon : f.function "move-or-lower"
 
 Button1 = : title : f.function "move-or-raise"
-Button2 = : title : f.raiselower
+Button3 = : title : f.raiselower
 
 Button1 = : icon : f.function "move-or-iconify"
-Button2 = : icon : f.iconify
+Button3 = : icon : f.iconify
 
 Button1 = : iconmgr : f.iconify
-Button2 = : iconmgr : f.iconify
+Button3 = : iconmgr : f.iconify
 
-#
-# And a menus with the usual things
-#
-menu "defops"
+# special key's bindings
+"Up" = m : all : f.exec "exec xbacklight -inc 10" # Backlight
+"Down" = m : all : f.exec "exec xbacklight -dec 10" # Backlight
+"Right" = m : all : f.exec "exec amixer sset Master 1+" # Volume Up
+"Left" = m : all : f.exec "exec amixer sset Master 1-" # Volume Down
+
+# the menu configurations
+Menu "System Menu"
 {
-"Twm"   f.title
-"Restart"       f.restart
-"Iconify"       f.iconify
-"Resize"        f.resize
-"Move"          f.move
-"Raise"         f.raise
-"Lower"         f.lower
-""              f.nop
-"Focus"         f.focus
-"Unfocus"       f.unfocus
-"Transset"      f.exec "transset -t 0.85"
-"Show Iconmgr"  f.showiconmgr
-"Hide Iconmgr"  f.hideiconmgr
-""              f.nop
-"Xterm"         f.exec "exec xterm &"
-"Emacs"         f.exec "emacs &"
-"Slack"         f.exec "slack &"
-"Root Xterm"    f.exec "exec xterm -e su - &"
-"Firefox"       f.exec "exec firefox &"
-""              f.nop
-"mutt"          f.exec "exec xterm -e mutt &"
-"irssi"         f.exec "exec xterm -e irssi &"
-""              f.nop
-"Kill"          f.destroy
-"Delete"        f.delete
-""              f.nop
-"Exit"          f.quit
+    "System" f.title
+    "Reload Configuration" f.restart
+    "Logout" f.quit
+}
+
+Menu "Applications"
+{
+    "Root Xterm" f.exec "exec xterm -e su - &"
+    "Emacs" f.exec "emacs &"
+    "Slack" f.exec "slack &"
+    "Firefox" f.exec "exec firefox &"
+    "" f.nop
+    "mutt" f.exec "exec xterm -e mutt &"
+    "irssi" f.exec "exec xterm -e irssi &"
+}
+
+# And a menus with the usual things
+Menu "Root Menu"
+{
+    "Start" f.title
+    "Xterm" f.exec "exec xterm &"
+    "Application" f.menu "Applications"
+    "" f.nop
+    "Show Iconmgr" f.showiconmgr
+    "Hide Iconmgr" f.hideiconmgr
+    "" f.nop
+    "System" f.menu "System Menu"
+}
+
+Menu "Window Menu"
+{
+    "Move" f.move
+    "Raise" f.raise
+    "Lower" f.lower
+    "" f.nop
+    "Focus" f.focus
+    "Unfocus" f.unfocus
+    "Force Quit" f.destroy
+}
+
+Menu "Frame Menu"
+{
+    "fullscreen" f.fullzoom
+    "minimize" f.iconify
+    "delete" f.delete
 }
