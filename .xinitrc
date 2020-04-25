@@ -13,7 +13,7 @@ if test ~/skkinput; then
     ~/skkinput &
 fi
 
-if test ~/.desktop.png; bluetooth-sendto; then
+if test ~/.desktop.png; then
    xloadimage -onroot -smooth -brighten 50 .desktop.png
 fi
 
