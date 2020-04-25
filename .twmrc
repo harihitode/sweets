@@ -70,6 +70,10 @@ Button1 = m : frame : f.menu "Frame Menu"
 Button1 = s : root : f.showiconmgr
 Button1 = s : iconmgr : f.hideiconmgr
 
+# window
+# Button1 ~ 3 are reserved for each window
+# Button2 is used by copy and pase via clipboard. (sometimes not working...)
+
 # window with meta key
 Button1 = m : window|iconmgr : f.function "move-or-raise"
 Button2 = m : window : f.fullzoom
@@ -101,7 +105,7 @@ Menu "System Menu"
 Menu "Applications"
 {
     "Root XTerm" f.exec "xterm -e su - &"
-    "Editor" f.exec "emacs &" # do you like vi? sorry...
+    "Editor" f.exec "emacs &" # do you like vi? oh...
     "Web" f.exec "google-chrome &" # yeah, browser
     "Message" f.exec "slack &" # I want simpler one!
     # "Message" f.exec "xterm -e irssi &"
