@@ -2,7 +2,7 @@ XTerm*locale: true
 XTerm*selectToClipboard: true
 XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=true
 XTerm*faceNameDoublesize: VL Gothic:style=reguler:antialias=true
-xTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
+XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
 XTerm*faceSize: 10.5
 XTerm*cjkWidth: true
 XTerm*fontDoublesize: true
