@@ -94,6 +94,11 @@ Button3 = : icon : f.function "move-or-iconify"
 "Right" = s : all : f.exec "exec amixer sset Master 1+" # Volume Up
 "Left" = s : all : f.exec "exec amixer sset Master 1-" # Volume Down
 
+"Left" = m : w|t|i|f : f.exec "~/scripts/xwpos left"
+"Right" = m : w|t|i|f : f.exec "~/scripts/xwpos right"
+"Up" = m : w|t|i|f : f.exec "~/scripts/xwpos up"
+"Down" = m : w|t|i|f : f.iconify
+
 # the menu configurations
 Menu "System Menu"
 {
