@@ -64,19 +64,15 @@ Button3 = : root : f.menu "Window Menu"
 # window resizing
 Button1 = : frame : f.resize
 Button1 = m : frame : f.menu "Frame Menu"
+Button2 = : frame : f.function "move-or-raise"
+Button3 = : frame : f.fullzoom
 
 # icon manager calling
 Button1 = s : root : f.showiconmgr
 Button1 = s : iconmgr : f.hideiconmgr
 
 # window
-# Button1 ~ 3 are reserved for each window
-# Button2 is used by copy and pase via clipboard. (sometimes not working...)
-
-# window with meta key
-Button1 = m : window|iconmgr : f.function "move-or-raise"
-Button2 = m : window : f.fullzoom
-Button3 = m : window : f.resize
+# in the window, buttons are not captured by twm
 
 # title & icon (although not used)
 Button1 = : title : f.function "move-or-raise"
@@ -121,7 +117,8 @@ Menu "Applications"
 Menu "Root Menu"
 {
     "Start" f.title
-    "XTerm" f.exec "xterm &"
+    "Terminal" f.exec "xterm -e sh &"
+    "File" f.exec "xfe &"
     "Application" f.menu "Applications"
     "~~~~ (''*" f.nop
     "System" f.menu "System Menu"
