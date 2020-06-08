@@ -3,6 +3,7 @@
 setxkbmap dvorak -option ctrl:nocaps
 xrdb .Xdefaults
 xbacklight -dec 40
+oneko &
 
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=skkinput"
