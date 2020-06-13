@@ -64,6 +64,7 @@ Button3 = : root : f.menu "Window Menu"
 # window resizing
 Button1 = : frame : f.resize
 Button1 = m : frame : f.menu "Frame Menu"
+Button1 = s : frame : f.move
 Button2 = : frame : f.function "move-or-raise"
 Button3 = : frame : f.fullzoom
 
