@@ -2,9 +2,10 @@
 
 setxkbmap dvorak -option ctrl:nocaps
 xrdb .Xdefaults
-xbacklight -dec 40
-oneko -sakura -tofocus &
-oneko -tomoyo &
+xbacklight -dec 60
+xscreensaver &
+# oneko -sakura -tofocus &
+# oneko -tomoyo &
 
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=skkinput"
