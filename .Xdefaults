@@ -1,3 +1,5 @@
+*metaSendsEscape: true
+
 XTerm*locale: true
 XTerm*selectToClipboard: true
 XTerm*faceName: DejaVu Sans Mono:style=Book:antialias=true
