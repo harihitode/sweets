@@ -13,11 +13,11 @@ export GTK_IM_MODULE="xim"
 export QT_IM_MODULE="xim"
 
 if test ~/skkinput; then
-    ~/skkinput &
+	~/skkinput &
 fi
 
 if test ~/.desktop.png; then
-   xloadimage -onroot -smooth -brighten 50 .desktop.png
+	xloadimage -onroot -smooth -brighten 50 .desktop.png
 fi
 
 twm
