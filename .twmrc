@@ -118,7 +118,7 @@ Menu "Applications"
 Menu "Root Menu"
 {
     "Start" f.title
-    "Terminal" f.exec "xterm -e sh &"
+    "Terminal" f.exec "xterm -e tmux a &"
     "File" f.exec "xfe &"
     "Application" f.menu "Applications"
     "~~~~ (''*" f.nop
