@@ -7,6 +7,7 @@ xscreensaver &
 # oneko -sakura -tofocus &
 # oneko -tomoyo &
 
+export DISPLAY=":0.0"
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=skkinput"
 export GTK_IM_MODULE="xim"
