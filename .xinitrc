@@ -13,6 +13,7 @@ export XMODIFIERS="@im=skkinput"
 export GTK_IM_MODULE="xim"
 export QT_IM_MODULE="xim"
 
+yaskkserv_simple /usr/share/yaskkserv/SKK-JISYO.L.yaskkserv
 if test ~/skkinput; then
 	~/skkinput &
 fi
