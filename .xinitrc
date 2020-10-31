@@ -3,11 +3,11 @@
 setxkbmap dvorak -option ctrl:nocaps
 xrdb .Xdefaults
 xbacklight -dec 60
-xscreensaver &
 # oneko -sakura -tofocus &
 # oneko -tomoyo &
 
-export DISPLAY=":0.0"
+LOCAL_IP_ADDR=`cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2`
+export DISPLAY=${LOCAL_IP_ADDR}:0.0
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=skkinput"
 export GTK_IM_MODULE="xim"
