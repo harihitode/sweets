@@ -2,6 +2,8 @@ export EDITOR="vi"
 export LESS='-i -M -R'
 export PAGER=less
 export HIGHLIGHTER=/usr/share/source-highlight/src-hilite-lesspipe.sh
+export PS1="> "
+export PS2="~ "
 if [ -f ${HIGHLIGHTER} ]; then
     export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
     export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
