@@ -19,7 +19,7 @@ if test ~/skkinput; then
 fi
 
 if test ~/.desktop.png; then
-	xloadimage -onroot -smooth -brighten 50 .desktop.png
+	xloadimage -onroot -smooth -brighten 90 .desktop.png
 fi
 
 twm
