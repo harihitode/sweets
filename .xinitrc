@@ -9,13 +9,13 @@ export QT_IM_MODULE="xim"
 
 setxkbmap dvorak -option ctrl:nocaps
 xrdb .Xdefaults
-xbacklight -dec 60
+# xbacklight -dec 60
 # oneko -sakura -tofocus &
 # oneko -tomoyo &
 
-yaskkserv_simple /usr/share/yaskkserv/SKK-JISYO.L.yaskkserv
 if test ~/skkinput; then
 	~/skkinput &
+	yaskkserv_simple /usr/share/yaskkserv/SKK-JISYO.L.yaskkserv
 fi
 
 if test ~/.desktop.png; then
