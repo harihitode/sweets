@@ -107,7 +107,7 @@ Menu "Applications"
 {
     "Root XTerm" f.exec "xterm -e su - &"
     "Editor" f.exec "emacs &" # do you like vi? oh...
-    "Web" f.exec "google-chrome &" # yeah, browser
+    "Web" f.exec "midori &" # yeah, browser
     "Message" f.exec "slack &" # I want simpler one!
     # "Message" f.exec "xterm -e irssi &"
     # Now I use gnus in emacs.
