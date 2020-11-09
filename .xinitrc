@@ -22,7 +22,7 @@ fi
 
 # set your cute wallpaper here
 if test ~/.desktop.png; then
-	xloadimage -onroot -brighten 50 .desktop.png
+	xloadimage -onroot -brighten 70 .desktop.png
 fi
 
 # kick the window manager 
