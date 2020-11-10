@@ -26,4 +26,4 @@ if test ~/.desktop.png; then
 fi
 
 # kick the window manager 
-twm &
+twm 
