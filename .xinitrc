@@ -14,12 +14,12 @@ xrdb .Xdefaults
 # oneko -tomoyo &
 
 if test ~/skkinput; then
-	~/skkinput &
 	yaskkserv_simple /usr/share/yaskkserv/SKK-JISYO.L.yaskkserv
+	~/skkinput &
 fi
 
-if test ~/.desktop.png; then
-	xloadimage -onroot -smooth -brighten 90 .desktop.png
+if test ~/.desktop.jpg; then
+	xloadimage -onroot -center .desktop.jpg
 fi
 
-twm
+twm &
