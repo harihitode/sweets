@@ -8,7 +8,7 @@ RandomPlacement
 NoTitle # disable the title bar for the true geek
 RightTitleButton ":delete" = f.delete
 RightTitleButton ":dot" = f.fullzoom
-BorderWidth 5
+BorderWidth 3
 MoveDelta 20 # required pxiels to continue the f.move
 ShowIconManager # start with icon manager
 IconifyByUnmapping # just use icon manager
