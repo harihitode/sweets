@@ -22,4 +22,5 @@ if test ~/.desktop.jpg; then
 	xloadimage -onroot -center .desktop.jpg
 fi
 
-twm &
+xterm -e tmux new-session -A -s basic &
+# twm &
