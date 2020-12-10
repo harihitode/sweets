@@ -106,6 +106,7 @@ Menu "System Menu"
 Menu "Applications"
 {
     "Root XTerm" f.exec "xterm -e su - &"
+    "Bash" f.exec "xterm -e bash &"
     "Editor" f.exec "emacs &" # do you like vi? oh...
     "Web" f.exec "google-chrome &" # yeah, browser
     "Message" f.exec "slack &" # I want simpler one!
@@ -118,7 +119,7 @@ Menu "Applications"
 Menu "Root Menu"
 {
     "Start" f.title
-    "Terminal" f.exec "xterm -e tmux new-session -A -s basic &"
+    "Terminal" f.exec "xterm -e screen -D -R -S default &"
     "File" f.exec "xfe &"
     "Application" f.menu "Applications"
     "~~~~ (''*" f.nop
