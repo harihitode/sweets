@@ -1,3 +1,6 @@
+#!/bin/sh
+
+export LANG=ja_JP.UTF8
 export EDITOR="vi"
 export LESS='-i -M -R'
 export PAGER=less
