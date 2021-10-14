@@ -35,6 +35,8 @@ bind b windowlist -b
 bind r source ~/.screenrc
 bind t title
 bind f screen vi
+bind + resize +3
+bind - resize -3
 
 # Remove some stupid / dangerous key bindings
 bind ^k
