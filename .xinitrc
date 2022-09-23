@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # base of the X settings
-export DISPLAY=":0.0"
+export DISPLAY=":0"
 if test ${HOME}/.Xdefaults; then
 	xrdb ${HOME}/.Xdefaults
 fi
 
 setxkbmap dvorak -option ctrl:nocaps
 xbacklight -dec 60
-xscreensaver &
+xautolock -secure -locker "xtrlock -b" -time 5 &
 # oneko -sakura -tofocus &
 # oneko -tomoyo &
 
@@ -26,4 +26,4 @@ if test ~/.desktop.png; then
 fi
 
 # kick the window manager 
-twm 
+twm
